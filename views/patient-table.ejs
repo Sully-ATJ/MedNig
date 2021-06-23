@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Patient Recording File</title>
+</head>
+<body>
+    <h3><a href="/patients/create">Create Patient</a></h3>
+    <div class="table-data">
+        <table border="1">
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>State of Birth</th>
+                <th>DOATS</th>
+                <th>Phone No</th>
+            </tr>
+            <%
+                if(patientData.length!=0){
+                    var i=1;
+                    patientData.forEach(function(data){
+            %>
+            <tr>
+                <td><%=i; %></td>
+                <td><%=data.Name %></td>
+                <td><%=data.Surname %></td>
+                <td><%=data.Age %></td>
+                <td><%=data.Gender %></td>
+                <td><%=data.DateOfBirth %></td>
+                <td><%=data.StateOfBirth %></td>
+                <td><%=data.DateOfAdmissionToSystem %></td>
+                <td><%=data.PhoneNo %></td>
+                <td><a href="/patients/search/<%= data._id%>">Show full data</a></td>
+            </tr>
+            <% i++; }) %>
+           
+        </table>
+    </div>
+    
+    <div class="search-data">
+        <form action="/patients/search/" method="get">
+            <input name="id" type="text" placeholder="Search">
+            <button type="submit">search</button>
+        </form>
+    </div>
+    <% } else{ %>
+        <tr>
+            <td colspan="7">No Data Found :(</td>
+        </tr>
+        <% } %> 
+</body>
+</html>
