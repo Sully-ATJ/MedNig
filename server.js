@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:',{useNewUrlParser:true});
+mongoose.connect('mongodb://{#put your connection route here}',{useNewUrlParser:true});
 var conn = mongoose.connection;
 const port = 3000;
 
