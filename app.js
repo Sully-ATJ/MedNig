@@ -32,7 +32,7 @@ app.use('/patients',patients);//----Patients page--->>>
 
 //Connection to Database
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/test',{useNewUrlParser:true});
+mongoose.connect('mongodb://{#put your connection route here}',{useNewUrlParser:true});
 var conn = mongoose.connection;
 //end of connection
 
